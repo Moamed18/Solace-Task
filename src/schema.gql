@@ -1,0 +1,111 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type LocalizedName {
+  firstName: String!
+  fatherName: String!
+  grandfatherName: String!
+  familyName: String!
+}
+
+type NationalId {
+  idNumber: String!
+  expiryDate: String!
+}
+
+type Country {
+  id: Int!
+  name: String!
+}
+
+type Nationality {
+  country: Country!
+  countryId: Int!
+}
+
+type MaritalStatus {
+  id: Int!
+  name: String!
+}
+
+type Passport {
+  id: Int!
+  passportNo: String!
+  passportIssueDate: String!
+  passportExpiryDate: String!
+}
+
+type User {
+  title: String!
+  birthDay: String!
+  gender: String!
+  firstName: String!
+  fatherName: String!
+  grandfatherName: String!
+  familyName: String!
+  localizedName: LocalizedName!
+  passport: Passport!
+  nationalId: NationalId!
+  nationalities: [Nationality!]!
+  maritalStatus: MaritalStatus!
+  dependants: Int!
+}
+
+type Query {
+  user(id: Int!): User!
+}
+
+type Mutation {
+  editUser(userData: UserInput!): User!
+}
+
+input UserInput {
+  title: String!
+  birthDay: String!
+  gender: String!
+  passport: PassportInput!
+  firstName: String!
+  fatherName: String!
+  grandfatherName: String!
+  familyName: String!
+  localizedName: LocalizedNameInput!
+  nationalId: NationalIdInput!
+  nationalities: [NationalityInput!]!
+  maritalStatus: MaritalStatusInput!
+  dependants: Float!
+}
+
+input PassportInput {
+  id: Float!
+  passportNo: String!
+  passportIssueDate: String!
+  passportExpiryDate: String!
+}
+
+input LocalizedNameInput {
+  firstName: String!
+  fatherName: String!
+  grandfatherName: String!
+  familyName: String!
+}
+
+input NationalIdInput {
+  idNumber: String!
+  expiryDate: String!
+}
+
+input NationalityInput {
+  country: CountryInput!
+  countryId: Float!
+}
+
+input CountryInput {
+  id: Float!
+  name: String!
+}
+
+input MaritalStatusInput {
+  id: Float!
+  name: String!
+}
